@@ -56,6 +56,10 @@
             <id>papermc-repo</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
+        <repository>
+            <id>space-maven</id>
+            <url>https://maven.pkg.jetbrains.space/viaender/p/d-l-z/maven</url>
+        </repository>
     </repositories>
 
     <dependencies>
