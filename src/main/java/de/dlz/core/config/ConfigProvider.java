@@ -5,12 +5,12 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import lombok.SneakyThrows;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 public class ConfigProvider {
   private final Core core;
-  private FileConfiguration config;
+  private YamlConfiguration config;
 
   public ConfigProvider(Core core) {
     this.core = core;
@@ -18,7 +18,7 @@ public class ConfigProvider {
 
   @SneakyThrows
   public void init(){
-    var file = new File(core.getDataFolder() + "config.yml");
+    var file = new File(core.getDataFolder().getParent() + File.separator + "DLZ" + File.separator + "config.yml");
     if (!file.getParentFile().exists()){
       Files.createDirectories(Path.of(file.getParentFile().getPath()));
     }
@@ -26,16 +26,21 @@ public class ConfigProvider {
     if (!file.exists()){
       Files.createFile(Path.of(file.getPath()));
     }
+    this.config = YamlConfiguration.loadConfiguration(file);
 
-    this.config = core.getConfig();
     config.options().copyDefaults(true);
 
-    config.addDefault("MySQL.Host", "localhost");
-    config.addDefault("MySQL.Port", "3306");
-    config.addDefault("MySQL.User", "root");
-    config.addDefault("MySQL.Password", "SuperSecret");
+    var mysqlSection = config.getConfigurationSection("MySQL");
 
-    config.save(core.getDataFolder() + "config.yml");
+    if (mysqlSection == null) {
+      mysqlSection = config.createSection("MySQL");
+      mysqlSection.set("Host", "localhost");
+      mysqlSection.set("Port", "3306");
+      mysqlSection.set("User", "root");
+      mysqlSection.set("Password", "SuperSecret");
+    }
+
+    config.save(file);
   }
 
   /**

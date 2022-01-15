@@ -3,13 +3,13 @@ package de.dlz.core;
 import de.dlz.core.config.ConfigProvider;
 import de.dlz.core.database.DatabaseProvider;
 import de.dlz.core.manager.PlayerManager;
+import de.dlz.core.pojo.Loader;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.bukkit.Bukkit;
-import org.jetbrains.annotations.Contract;
 
 @Getter
-public class CoreLoader {
+public class CoreLoader extends Loader {
   @Getter(AccessLevel.NONE)
   private final Core core;
 
@@ -21,6 +21,7 @@ public class CoreLoader {
     this.core = core;
   }
 
+  @Override
   public void init() {
     initManager();
     initListener();
@@ -32,8 +33,8 @@ public class CoreLoader {
     Bukkit.getScheduler().runTaskTimerAsynchronously(core, () -> playerManager.saveAll(), 6000L, 6000L);
   }
 
-  @Contract(pure = true)
-  private void initManager() {
+
+  public void initManager() {
     this.configProvider = new ConfigProvider(this.core);
     this.configProvider.init();
 
@@ -43,12 +44,11 @@ public class CoreLoader {
     this.playerManager = new PlayerManager(core);
   }
 
-  @Contract(pure = true)
-  private void initListener() {
+
+  public void initListener() {
   }
 
-  @Contract(pure = true)
-  private void initCommands() {
+  public void initCommands() {
   }
 
   public void shutdown() {
