@@ -6,7 +6,8 @@ import org.bukkit.ChatColor;
 @Getter
 public enum Module {
   SKILL(ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "SKILL" + ChatColor.DARK_GRAY + "]"),
-  CORE;
+  CORE,
+  ECONOMY(ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "Economy" + ChatColor.DARK_GRAY + "]");
   private String prefix;
 
   Module() {

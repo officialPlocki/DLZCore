@@ -12,7 +12,9 @@ public enum Messages {
   LEAVE_EDIT_MODE(ChatColor.GREEN + "You successful leaved the Edit Mode!"),
   JOIN_EDIT_MODE(ChatColor.GREEN + "You successful entered the Edit Mode!"),
   ADD_BLOCK_TO_MINING(ChatColor.GREEN + "You added this Block"),
-  REMOVE_BLOCK_TO_MINING(ChatColor.GREEN + "You removed this Block");
+  REMOVE_BLOCK_TO_MINING(ChatColor.GREEN + "You removed this Block"),
+  ITEM_IS_NO_MONEY(ChatColor.RED + "Sorry, but only money can be used in the wallet!");
+
 
   private final String message;
 
