@@ -12,6 +12,10 @@ public class ItemBuilder {
     this.itemStack = new ItemStack(material);
   }
 
+  public ItemBuilder(ItemStack itemStack) {
+    this.itemStack = itemStack;
+  }
+
   public ItemBuilder setLore(String... lore) {
     var meta = this.itemStack.getItemMeta();
     meta.setLore(List.of(lore));
@@ -34,6 +38,17 @@ public class ItemBuilder {
   public ItemBuilder setType(Material material){
     this.itemStack.setType(material);
     return this;
+  }
+
+  public ItemBuilder setCustomModel(int i){
+    var meta = this.itemStack.getItemMeta();
+    meta.setCustomModelData(i);
+    this.itemStack.setItemMeta(meta);
+    return this;
+  }
+
+  public String getName(){
+    return this.itemStack.getItemMeta().getDisplayName();
   }
 
   public ItemStack get(){

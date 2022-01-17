@@ -2,6 +2,8 @@ package de.dlz.core;
 
 import de.dlz.core.config.ConfigProvider;
 import de.dlz.core.database.DatabaseProvider;
+import de.dlz.core.gui.ClickInventoryListener;
+import de.dlz.core.listener.ConnectionHandler;
 import de.dlz.core.manager.PlayerManager;
 import de.dlz.core.pojo.Loader;
 import lombok.AccessLevel;
@@ -46,6 +48,8 @@ public class CoreLoader extends Loader {
 
 
   public void initListener() {
+    Bukkit.getPluginManager().registerEvents(new ClickInventoryListener(), core);
+    new ConnectionHandler(core);
   }
 
   public void initCommands() {
