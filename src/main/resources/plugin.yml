@@ -1,4 +1,4 @@
-name: Core
+name: DLZ-Core
 version: '${project.version}'
 main: de.dlz.core.Core
 api-version: 1.18
