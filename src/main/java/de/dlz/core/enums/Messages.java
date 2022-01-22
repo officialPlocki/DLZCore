@@ -9,6 +9,10 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 @RequiredArgsConstructor
 public enum Messages {
+    MAINTENANCE_MODE_ENABLED_KICK(ChatColor.RED + "Sorry, but we are currently in Maintenance!"),
+    MAINTENANCE_WRONG_INPUT(ChatColor.RED + "Please use /maintenance <on/off>"),
+    MAINTENANCE_ENABLE(ChatColor.GRAY + "The Maintenance Mode is now enabled."),
+    MAINTENANCE_DISABLE(ChatColor.GRAY + "The Maintenance Mode is now disabled."),
     PLAYER_NOT_FOUND(ChatColor.RED + "Player not found!"),
     DO_NOT_HAVE_THE_RIGHT_PERMISSION(ChatColor.RED + "You don't have the right Permission to do this!"),
     LEAVE_EDIT_MODE(ChatColor.GREEN + "You successful leaved the Edit Mode!"),
