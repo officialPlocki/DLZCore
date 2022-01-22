@@ -18,10 +18,15 @@ public enum Messages {
     ITEM_IS_NO_MONEY(ChatColor.RED + "Sorry, but only money can be used in the wallet!"),
     NO_SUPPORTER_ONLINE(ChatColor.RED + "Sorry, but there is no Supporter online!"),
     SUPPORT_REQUESTED(ChatColor.GRAY + "The Support is called!"),
-    SUPPORT_CLICK_HERE_1(ChatColor.GRAY + "Hey, %player% need Support! To enter "),
+    SUPPORT_CLICK_HERE_1(ChatColor.GRAY + "Hey, %player% need Support ( %extra% ) ! To enter "),
     SUPPORT_CLICK_HERE_2(ChatColor.GOLD + "Click Here"),
     PLAYER_HAS_NO_OPEN_SUPPORT(ChatColor.RED + "The Player %player% has no open Support Ticket!"),
-    SUPPORT_CHAT_NOT_OPEN(ChatColor.RED + "The Support Chat is not open!");
+    SUPPORT_CHAT_END(ChatColor.GOLD + "The Support Chat has ended by %player%!"),
+    SUPPORT_CHAT_NOT_OPEN(ChatColor.RED + "The Support Chat is not open!"),
+    SUPPORT_TICKET_ALREADY_OPEN(ChatColor.RED + "You have already an open Support Ticket!"),
+    SUPPORT_CHAT_MESSAGE_TO("%player% → You: %message%"),
+    SUPPORT_CHAT_MESSAGE_FROM("YOU → %player%: %message%"),
+    SUPPORT_CHAT_OPENED(ChatColor.GRAY + "The Support Chat was successfully opened!");
 
 
     private final String message;
