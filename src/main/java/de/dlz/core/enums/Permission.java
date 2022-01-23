@@ -8,6 +8,10 @@ import org.bukkit.entity.Player;
 
 @Getter
 public enum Permission {
+
+    COMMAND_KICK(ESSENTIALS,"dlz.command.kick"),
+    WHITELIST_ADD(ESSENTIALS, "dlw.command.AddToWhitelist"),
+    WHITELIST_REMOVE(ESSENTIALS, "dlw.command.RemoveFromWhitelist"),
     SKILL_BLOCK_EDIT(SKILL, "dlz.skill.blockedit"),
     ESSENTIALS_SUPPORT_END(ESSENTIALS, "dlz.support.end"),
     ESSENTIALS_SUPPORT_VIEW(ESSENTIALS, "dlz.support.view"),

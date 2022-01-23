@@ -30,7 +30,24 @@ public enum Messages {
     SUPPORT_TICKET_ALREADY_OPEN(ChatColor.RED + "You have already an open Support Ticket!"),
     SUPPORT_CHAT_MESSAGE_TO("%player% → You: %message%"),
     SUPPORT_CHAT_MESSAGE_FROM("YOU → %player%: %message%"),
-    SUPPORT_CHAT_OPENED(ChatColor.GRAY + "The Support Chat was successfully opened!");
+    SUPPORT_CHAT_OPENED(ChatColor.GRAY + "The Support Chat was successfully opened!"),
+  PLAYER_KICK_MESSAGE("""
+          §i§6--------------------DLZ-RP--------------------
+
+          §eDu wurdest vom Server gekickt!
+          §eGrund:
+          
+          §i§c %reason%
+          
+          §9 %time%
+          §9
+          §i§6----------------------------------------------"""),
+  PLAYER_KICK_DEFAULT_EMPTY(ChatColor.RED + "nicht angegeben"),
+  PLAYER_KICKED(ChatColor.GREEN + "Player was successfully ejected!"),
+  PLUGIN_ARGUMENT_MISSING(ChatColor.RED + "Arguments missing!"),
+  WHITELIST_PLAYER_ALREADY_WHITELISTED(ChatColor.RED + "Player already whitelisted!");
+
+
 
 
     private final String message;
@@ -51,4 +68,8 @@ public enum Messages {
     }
 
 
+    @NotNull
+    public String replace(String s1, String s2){
+        return message.replace(s1, s2);
+    }
 }
