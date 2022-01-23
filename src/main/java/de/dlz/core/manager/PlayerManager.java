@@ -4,8 +4,8 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import de.dlz.core.Core;
-import de.dlz.core.pojo.CRPPlayer;
 import de.dlz.core.pojo.RPPlayer;
+import de.dlz.core.pojo.IRPPlayer;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import org.bukkit.entity.Player;
@@ -14,14 +14,14 @@ import org.jetbrains.annotations.NotNull;
 public class PlayerManager {
 
   private final Core core;
-  private final Cache<UUID, RPPlayer> playerCache = CacheBuilder
+  private final Cache<UUID, IRPPlayer> playerCache = CacheBuilder
       .newBuilder()
       .expireAfterWrite(30, TimeUnit.MINUTES)
       .build(
           new CacheLoader<>() {
             @Override
-            public @NotNull RPPlayer load(@NotNull UUID key) {
-              return new CRPPlayer(key, core);
+            public @NotNull IRPPlayer load(@NotNull UUID key) {
+              return new RPPlayer(key, core);
             }
           }
       );
@@ -30,11 +30,11 @@ public class PlayerManager {
     this.core = core;
   }
 
-  public RPPlayer getRPPlayer(UUID uuid){
+  public IRPPlayer getRPPlayer(UUID uuid){
     return playerCache.getIfPresent(uuid);
   }
 
-  public RPPlayer getRPPlayer(Player player){
+  public IRPPlayer getRPPlayer(Player player){
     return playerCache.getIfPresent(player.getUniqueId());
   }
 
